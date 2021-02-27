@@ -1,6 +1,8 @@
 const initialState = {
-    popup: 'false',
-    isLogin: false
+    popup: false,
+    isLogin: false,
+    isLoading: false,
+    user: 'Fachri'
 }
 
 const reducer = (state = initialState, action) => {
@@ -15,6 +17,20 @@ const reducer = (state = initialState, action) => {
         return {
             ...state,
             isLogin: action.value
+        }
+    }
+
+    if (action.type === 'CHANGE_USER') {
+        return {
+            ...state,
+            user: action.value
+        }
+    }
+
+    if (action.type === 'CHANGE_ISLOADING') {
+        return {
+            ...state,
+            isLoading: action.value
         }
     }
     return state;

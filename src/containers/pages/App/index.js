@@ -12,7 +12,7 @@ function App() {
       <Router>
         <Route path="/dashboard" component={Dashboard} />
         <Route path="/login" component={Login} />
-        <Route path="/" component={Register} />
+        <Route path="/" exact component={Register} />
       </Router>
     </Provider>
   );
