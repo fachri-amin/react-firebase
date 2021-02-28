@@ -1,17 +1,16 @@
-import auth_firebase from '../../../config/auth';
+import { registerFirebase, loginFirebase } from '../../../config/auth';
 
 
-export const actionChangeUser = () => {
+export const actionLoginUser = (data) => {
     return (dispatch) => {
-        setTimeout(() => {
-            return dispatch({ type: 'CHANGE_USER', value: 'Fachri Amin' })
-        }, 2000)
+        dispatch({ type: 'CHANGE_ISLOADING', value: true });
+        return loginFirebase(data.email, data.password, dispatch);
     }
 }
 
 export const actionRegisterUser = (data) => {
     return (dispatch) => {
         dispatch({ type: 'CHANGE_ISLOADING', value: true });
-        return auth_firebase(data.email, data.password, dispatch);
+        return registerFirebase(data.email, data.password, dispatch);
     }
 }
